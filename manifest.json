@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "GTOWizard Screenshot Tool",
+  "version": "1.0.0",
+  "description": "GTOWizard Solution browserのスクリーンショットツール",
+  "permissions": [
+    "activeTab",
+    "clipboardWrite"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://app.gtowizard.com/solutions*"
+      ],
+      "js": ["html2canvas.min.js", "content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["*.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
